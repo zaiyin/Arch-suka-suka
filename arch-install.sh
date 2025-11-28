@@ -76,17 +76,12 @@ sudo pacman -S --noconfirm \
     lightdm \
     lightdm-gtk-greeter \
     lightdm-gtk-greeter-settings \
-    xdg-user-dirs \
     neofetch \
-    alacritty \
-    firefox
+    alacritty 
 
 echo "===== Enable Services ====="
 sudo systemctl enable lightdm
 sudo systemctl enable NetworkManager
-
-echo "===== Update Folder User ====="
-xdg-user-dirs-update
 
 echo "===== Instalasi Selesai! ====="
 echo "Silakan reboot: sudo reboot"
