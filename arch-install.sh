@@ -3,6 +3,12 @@
 echo "===== Update Sistem ====="
 sudo pacman -Syu --noconfirm
 
+echo "===== Install AUR ====="
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
 echo "===== Install Driver NVIDIA ====="
 sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings nvidia-prime
 
@@ -16,23 +22,11 @@ sudo pacman -S --noconfirm \
     xfce4-notifyd
 
 echo "===== Install Wayland + Wayfire ====="
-sudo pacman -S --noconfirm \
-    wayfire \
-    wf-config \
-    wayfire-plugins-extra \
-    wf-shell \
-    waybar \
-    wcm \
-    xwayland
+sudo pacman -S --noconfirm wayfire wf-config xwayland waybar
+yay -S --noconfirm wayfire-plugins-extra wf-shell wcm
 
 echo "===== Install Openbox ====="
-sudo pacman -S --noconfirm \
-    openbox \
-    obconf \
-    obmenu-generator \
-    tint2 \
-    nitrogen \
-    lxappearance
+sudo pacman -S --noconfirm openbox obconf obmenu-generator tint2 nitrogen lxappearance
 
 echo "===== Install i3-gaps ====="
 sudo pacman -S --noconfirm \
@@ -76,7 +70,6 @@ sudo pacman -S --noconfirm \
     lightdm \
     lightdm-gtk-greeter \
     lightdm-gtk-greeter-settings \
-    neofetch \
     alacritty 
 
 echo "===== Enable Services ====="
